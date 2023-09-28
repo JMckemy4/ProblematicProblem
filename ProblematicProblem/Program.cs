@@ -15,6 +15,12 @@ namespace ProblematicProblem
             string userInput1 = Console.ReadLine();
             bool cont = userInput1.ToLower() == "yes";
 
+            if (!cont)
+            {
+                Console.WriteLine("Goodbye!");
+                return; // Stop the program
+            }
+
             Console.WriteLine();
 
             Console.Write("We are going to need your information first! What is your name? ");
