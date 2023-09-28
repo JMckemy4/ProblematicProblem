@@ -7,14 +7,13 @@ namespace ProblematicProblem
     class Program
     {
         static Random rng = new Random();
-        static bool cont = true;
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Laser Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
 
         static void Main(string[] args)
         {
             Console.Write("Hello, welcome to the random activity generator! Would you like to generate a random activity? yes/no: ");
             string userInput1 = Console.ReadLine();
-            cont = userInput1.ToLower() == "yes";
+            bool cont = userInput1.ToLower() == "yes";
 
             Console.WriteLine();
 
@@ -38,12 +37,13 @@ namespace ProblematicProblem
 
             if (seeList)
             {
+                Console.WriteLine("Current list of activities:");
+
                 foreach (string activity in activities)
                 {
-                    Console.Write($"{activity} ");
+                    Console.WriteLine(activity);
                     Thread.Sleep(250);
                 }
-                Console.WriteLine();
 
                 Console.Write("Would you like to add any activities before we generate one? yes/no: ");
                 string userInput3 = Console.ReadLine();
@@ -57,12 +57,14 @@ namespace ProblematicProblem
                     string userAddition = Console.ReadLine();
                     activities.Add(userAddition);
 
+                    Console.WriteLine("Updated list of activities:");
+
                     foreach (string activity in activities)
                     {
-                        Console.Write($"{activity} ");
+                        Console.WriteLine(activity);
                         Thread.Sleep(250);
                     }
-                    Console.WriteLine();
+
                     Console.Write("Would you like to add more? yes/no: ");
                     string userInput4 = Console.ReadLine();
                     addToList = userInput4.ToLower() == "yes";
